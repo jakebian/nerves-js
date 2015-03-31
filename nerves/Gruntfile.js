@@ -11,15 +11,15 @@ var gruntSettings = {
                     almond: true,
                     baseUrl: 'node_modules/requirejs',
                     paths: {
-                        nerves: '../../nerves'
+                        nerves: '../../src/nerves'
                     },
                     include: ['nerves'],
                     out: 'dist/nerves.js',
 
                     // make the library available as a global constant in browser
                     wrap: {
-                        startFile: 'wrap/wrap.start',
-                        endFile: 'wrap/wrap.end'
+                        startFile: 'build-util/wrap/wrap.start',
+                        endFile: 'build-util/wrap/wrap.end'
                     }
                 },
                 preserveLicenseComments: false
@@ -33,8 +33,8 @@ var gruntSettings = {
             },
 
             files: [
-                    'nerves/*.js',
-                    'nerves.js'
+                    'src/nerves/*.js',
+                    'src/nerves.js'
                 ]
         },
 
