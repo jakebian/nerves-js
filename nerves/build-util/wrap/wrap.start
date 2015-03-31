@@ -1,13 +1,11 @@
-//Copyright 2012, etc.
-
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
-        // AMD.
-        define(['jquery', 'underscore'], factory);
+        // AMD globals
+        define([], factory);
     } else {
         // Browser globals
-        root.nerves = factory(root.$, root._);
+        root.nerves = factory();
     }
-}(this, function ($, _) {
+}(this, function () {
 
 
