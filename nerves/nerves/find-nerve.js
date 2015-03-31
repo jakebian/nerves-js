@@ -1,4 +1,5 @@
 /* global define*/
+
 define([], function () {
 
     return findNerve;
@@ -7,7 +8,7 @@ define([], function () {
      * Find kth-nerve of graph (poset, small-category) g
      * @param  {object} g - graph object
      * @param  {float}  k - integer > 0, specifying order of the nerve group to compute
-     * @return {object} nerve as a path object
+     * @return {object} nerve as a list of paths
      */
 
     function findNerve(g, k) {
