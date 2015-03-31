@@ -6,7 +6,7 @@ var gruntSettings = {
     config: {
 
         requirejs: {
-            std: {
+            full: {
                 options: {
                     almond: true,
                     baseUrl: 'node_modules/requirejs',
@@ -16,14 +16,33 @@ var gruntSettings = {
                     include: ['nerves'],
                     out: 'dist/nerves.js',
 
-                    // make the library available as a global constant in browser
                     wrap: {
                         startFile: 'build-util/wrap/wrap.start',
                         endFile: 'build-util/wrap/wrap.end'
                     },
-                    preserveLicenseComments: false
+                    preserveLicenseComments: false,
+                    optimize: 'none'
                 },
             },
+
+            minified: {
+                options: {
+                    almond: true,
+                    baseUrl: 'node_modules/requirejs',
+                    paths: {
+                        nerves: '../../src/nerves'
+                    },
+                    include: ['nerves'],
+                    out: 'dist/nerves.min.js',
+
+                    wrap: {
+                        startFile: 'build-util/wrap/wrap.start',
+                        endFile: 'build-util/wrap/wrap.end'
+                    },
+                    preserveLicenseComments: false,
+                },
+            },
+
         },
 
         jshint: {
