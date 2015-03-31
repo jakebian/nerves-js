@@ -4,7 +4,7 @@ var app = express();
 var PORT = 3000;
 
 app.use(express.static('public'));
-app.use('/src', express.static(__dirname + '/../src'));
+app.use('/nerves', express.static(__dirname + '/../nerves/dist'));
 
 app.listen(PORT,logConnectMessage)
 
