@@ -20,9 +20,9 @@ var gruntSettings = {
                     wrap: {
                         startFile: 'build-util/wrap/wrap.start',
                         endFile: 'build-util/wrap/wrap.end'
-                    }
+                    },
+                    preserveLicenseComments: false
                 },
-                preserveLicenseComments: false
             },
         },
 
