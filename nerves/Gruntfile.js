@@ -36,7 +36,17 @@ var gruntSettings = {
                     'nerves/*.js',
                     'nerves.js'
                 ]
-        }
+        },
+
+        watch: {
+            scripts: {
+                files: ['**/*.js'],
+                tasks: ['default'],
+                options: {
+                  spawn: false,
+                },
+            },
+        },
 
     },
 
@@ -44,7 +54,8 @@ var gruntSettings = {
     npmTasks: [
 
         'grunt-contrib-jshint',
-        'grunt-requirejs'
+        'grunt-requirejs',
+        'grunt-contrib-watch'
 
     ]
 }
