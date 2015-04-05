@@ -19,8 +19,8 @@ define([], function () {
 
         function getD3Link(link) {
             return {
-                source: nodeIndexMap[link[0]],
-                target: nodeIndexMap[link[1]],
+                source: nodeIndexMap[link.source],
+                target: nodeIndexMap[link.target],
             };
         }
     }
@@ -48,12 +48,20 @@ define([], function () {
     }
 
     function getD3Node(node) {
-        return {name: node, weight: 2};
+        return {name: node, weight: 0};
     }
 
 
     function getLinksFromNodesList(nodesList) {
-        return nodesList.slice(1).reduce(makeLink, [ [ nodesList[0], null] ]);
+        return getAllPairs(nodesList, formatLink);
+    }
+
+
+    function formatLink(source, target) {
+        return {
+            source: source,
+            target: target
+        };
     }
 
     function makeLink(links, node) {
@@ -68,6 +76,33 @@ define([], function () {
         var merged = [];
         merged = merged.concat.apply(merged, arrays);
         return merged;
+    }
+
+    /**
+     * Generates all nC2 combinations of arr.
+     * @param  {Array}    arr      : The array to choose from
+     * @param  {function} formatFn : A function thatformats the result, takes 2 arguments.
+     * @return {Array}
+     */
+
+    function getAllPairs(arr, formatFn) {
+
+        var formatter = formatFn;
+        var result = [];
+
+        for (var i = 0; i < arr.length; i++) {
+
+            var first = arr[i];
+
+            for (var j = i; j < arr.length; j++) {
+
+                var second = arr[j];
+                result.push(formatFn(first, second));
+
+            }
+        }
+
+        return result;
     }
 
 });

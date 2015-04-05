@@ -1,4 +1,4 @@
-/* global define */
+/* global define, console */
 
 define(['./find-nerve', './formatters'],
     function (findNerve, formatters) {
@@ -13,6 +13,7 @@ define(['./find-nerve', './formatters'],
         }
 
         function getRawNerveGraph(graph, k) {
+            console.log('linksFromNerve',formatters.getLinksFromNerve(findNerve(graph, k)));
             return {
                 nodes: graph.getNodes(),
                 links: formatters.getLinksFromNerve(findNerve(graph, k))
